@@ -10,13 +10,9 @@
     var contents;
     if (f) {
       var r = new FileReader();
-      r.onload = function(e) { 
+      r.onload = function(e) {
+      		alert(e.targetresult)
 	      document.getElementById("contents").innerText = e.target.result;
-        alert( "Got the file.n" 
-              +"name: " + f.name + "n"
-              +"type: " + f.type + "n"
-              +"size: " + f.size + " bytesn"
-              + "starts with: " + contents.substr(1, contents.indexOf("n"))
         );  
       }
       r.readAsText(f);
