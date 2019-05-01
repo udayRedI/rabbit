@@ -11,7 +11,7 @@
     if (f) {
       var r = new FileReader();
       r.onload = function(e) {
-      		alert(e.targetresult)
+      		alert(e.target.result)
 	      document.getElementById("contents").innerText = e.target.result;
       }
       r.readAsText(f);
