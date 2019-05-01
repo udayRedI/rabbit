@@ -1,5 +1,30 @@
 <html>
 <body>
 	<a href="/list.sh">Link</a>
+	<input type="file" id="fileinput" />
+	<div id="contents"></div>
+<script type="text/javascript">
+  function readSingleFile(evt) {
+    //Retrieve the first (and only!) File from the FileList object
+    var f = evt.target.files[0]; 
+    var contents;
+    if (f) {
+      var r = new FileReader();
+      r.onload = function(e) { 
+	      document.getElementById("contents").innerText = e.target.result;
+        alert( "Got the file.n" 
+              +"name: " + f.name + "n"
+              +"type: " + f.type + "n"
+              +"size: " + f.size + " bytesn"
+              + "starts with: " + contents.substr(1, contents.indexOf("n"))
+        );  
+      }
+      r.readAsText(f);
+    } else { 
+      alert("Failed to load file");
+    }
+  }
+  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+</script>
 </body>
 </html>
